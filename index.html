@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wenda Zhang</title>
+<meta name="description" content="Wenda Zhang, M.A. student in Economics at the University of Chicago. Environmental and public economics, political economy of China, applied econometrics.">
+<meta property="og:title" content="Wenda Zhang">
+<meta property="og:description" content="M.A. student in Economics, University of Chicago">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23800000'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='white' text-anchor='middle'%3EWZ%3C/text%3E%3C/svg%3E">
+<style>
+  /* 全部样式都写在这里，不引用任何外部字体或脚本（国内也能正常打开） */
+  :root {
+    --accent: #800000;            /* 主色：UChicago maroon，想换颜色只改这一行 */
+    --text: #1f1f1f;
+    --muted: #666;
+    --line: #e6e6e6;
+    --soft: #faf7f7;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+    --serif: Georgia, "Times New Roman", "Songti SC", "SimSun", serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  body { margin: 0; color: var(--text); background: #fff; font: 17px/1.65 var(--sans); -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* 顶部导航 */
+  .site-header { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.96); border-bottom: 1px solid var(--line); }
+  .bar { max-width: 880px; margin: 0 auto; padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px 16px; }
+  .brand { font-family: var(--serif); font-size: 20px; font-weight: 600; color: var(--text); }
+  .brand:hover { text-decoration: none; }
+  nav a { margin-left: 22px; font-size: 15px; color: var(--muted); }
+  nav a:hover { color: var(--accent); text-decoration: none; }
+
+  main { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 44px 0 4px; }
+
+  /* 首屏：照片 + 简介 */
+  .intro { display: grid; grid-template-columns: 210px 1fr; gap: 40px; align-items: start; padding-top: 56px; }
+  .avatar { position: relative; width: 210px; aspect-ratio: 4 / 5; border-radius: 8px; overflow: hidden; background: #f3ecec; display: flex; align-items: center; justify-content: center; }
+  .avatar span { font-family: var(--serif); font-size: 64px; color: var(--accent); opacity: .65; }
+  .avatar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  h1 { font-family: var(--serif); font-weight: 600; font-size: 38px; line-height: 1.2; margin: 0 0 6px; }
+  h1 .cn { font-weight: 400; font-size: .72em; color: var(--muted); margin-left: 10px; }
+  .role { margin: 0 0 18px; color: var(--muted); }
+  .intro p { margin: 0 0 14px; }
+  .links { list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 15.5px; }
+
+  /* 标题 */
+  h2 { font-family: var(--serif); font-size: 26px; font-weight: 600; margin: 0 0 8px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+  h3 { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 28px 0 14px; }
+
+  /* 论文条目 */
+  .paper { margin: 0 0 26px; }
+  .paper .title { font-size: 18px; font-weight: 600; line-height: 1.45; margin: 0 0 4px; }
+  .paper .title a { color: var(--text); }
+  .paper .title a:hover { color: var(--accent); }
+  .paper .meta { font-size: 15.5px; color: var(--muted); margin: 0 0 8px; }
+  details summary { display: inline-block; cursor: pointer; list-style: none; user-select: none; font-size: 14px; color: var(--accent); border: 1px solid #dcc5c5; border-radius: 4px; padding: 1px 10px; }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::before { content: "\25B8\00a0"; }
+  details[open] summary::before { content: "\25BE\00a0"; }
+  details summary:hover { background: var(--soft); }
+  details p { margin: 10px 0 0; padding: 12px 16px; font-size: 15.5px; line-height: 1.7; background: var(--soft); border-left: 3px solid var(--accent); }
+
+  /* 列表（研究助理 / 教育） */
+  .entries { list-style: none; padding: 0; margin: 0; }
+  .entries li { display: flex; justify-content: space-between; gap: 24px; margin: 0 0 16px; }
+  .entries .what { flex: 1; }
+  .entries .what small { display: block; font-size: 15px; color: var(--muted); line-height: 1.55; margin-top: 2px; }
+  .entries .when { white-space: nowrap; font-size: 15px; color: var(--muted); }
+
+  footer { max-width: 880px; margin: 56px auto 0; padding: 22px 24px 40px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
+
+  /* 手机端 */
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .intro { grid-template-columns: 1fr; gap: 24px; padding-top: 36px; }
+    .avatar { width: 150px; }
+    h1 { font-size: 31px; }
+    nav a { margin: 0 18px 0 0; }
+    .entries li { flex-direction: column; gap: 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="#">Wenda Zhang</a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#education">Education</a>
+      <a href="CV_Wenda_Zhang.pdf" target="_blank" rel="noopener">CV</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ========== 首页简介 ========== -->
+  <section id="about" class="intro">
+    <!-- 照片：把你的照片命名为 profile.jpg，和 index.html 放在同一个文件夹，就会自动替换下面的 "WZ" 占位 -->
+    <div class="avatar">
+      <span>WZ</span>
+      <img src="profile.jpg" alt="Wenda Zhang" onerror="this.remove()">
+    </div>
+
+    <div>
+      <!-- 想加中文名：把下一行改成 <h1>Wenda Zhang <span class="cn">你的中文名</span></h1> -->
+      <h1>Wenda Zhang</h1>
+      <p class="role">M.A. Student in Economics, University of Chicago</p>
+
+      <p>I am an M.A. student in Economics at the University of Chicago, supported by the Chair Scholar Award. I received my B.S. in Econometrics and Quantitative Economics with Distinction from the University of Illinois Urbana-Champaign in 2026, after beginning my undergraduate studies at Xi’an Jiaotong-Liverpool University.</p>
+
+      <p>My research interests are in environmental and public economics, the political economy of China, and applied econometrics. With <a href="https://www.yuhangpan.com/" target="_blank" rel="noopener">Yuhang Pan</a> and Haotian Yu, I study how China’s wastewater-treatment targets shaped local government behavior, and when distance-to-target research designs produce effects through regression to the mean alone.</p>
+
+      <ul class="links">
+        <li><a class="email" data-u="wendaecon" data-d="uchicago.edu" href="#">wendaecon [at] uchicago [dot] edu</a></li>
+        <li><a href="CV_Wenda_Zhang.pdf" target="_blank" rel="noopener">CV (PDF)</a></li>
+        <!-- 有的话取消注释并填上链接：
+        <li><a href="https://scholar.google.com/citations?user=XXXX" target="_blank" rel="noopener">Google Scholar</a></li>
+        <li><a href="https://github.com/XXXX" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/XXXX" target="_blank" rel="noopener">LinkedIn</a></li>
+        -->
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========== 研究 ========== -->
+  <section id="research">
+    <h2>Research</h2>
+
+    <h3>Working Papers</h3>
+
+    <!-- 有 PDF 之后：把标题包进 <a href="文件名.pdf" target="_blank">…</a> -->
+    <article class="paper">
+      <p class="title">Performance Measures and Local Government Behavior: Evidence from China’s Wastewater Treatment Targets</p>
+      <p class="meta">with <a href="https://www.yuhangpan.com/" target="_blank" rel="noopener">Yuhang Pan</a> (Peking University) and Haotian Yu (Georgia Institute of Technology)</p>
+      <details>
+        <summary>Abstract</summary>
+        <p>We study how Chinese cities responded to the wastewater-treatment-rate targets of the 11th Five-Year Plan (2006–2010). Our two-sided continuous-treatment difference-in-differences design exploits cross-city variation in the distance between pre-policy treatment rates and assigned targets. Cities further below their targets increased treated wastewater volume, treatment capacity, and the number of plants, but did not expand sewer networks or other unassessed infrastructure, while cities already above their targets did not change treated volume. This pattern follows the structure of the assessed indicator: plants raise treated volume directly, whereas sewer expansion raises both treated and collected wastewater and contributes less to the measured rate. The margin of response depended on existing capacity: cities with idle capacity ran existing plants harder, while capacity-constrained cities built new plants. Despite the large expansion in treatment, river water quality, industrial firm behavior and water use, and domestic pollutant discharge show no comparable differential improvement.</p>
+      </details>
+    </article>
+
+    <article class="paper">
+      <p class="title">When Treatment Intensity Is Built from the Baseline Outcome: Mechanical Convergence in Distance-to-Target Designs</p>
+      <p class="meta">with <a href="https://www.yuhangpan.com/" target="_blank" rel="noopener">Yuhang Pan</a> (Peking University) and Haotian Yu (Georgia Institute of Technology)</p>
+      <details>
+        <summary>Abstract</summary>
+        <p>Many difference-in-differences designs measure treatment intensity as the gap between a policy target and a unit’s baseline outcome. We show that such a dose generates a dose response through regression to the mean alone, and derive this mechanical response. Standard clipped codings, which set units past the target to zero, amplify mechanical convergence, while signed-dose specifications eliminate target-specific variation; a two-sided spline isolates the kink at the target, but interpreting that kink still requires a no-policy benchmark. We develop placebo-target, placebo-date, untreated-unit, and base-year-relocation diagnostics and apply them to Chinese city data and to six published studies. In several cases, placebo designs with no policy reproduce much of the estimated response, highlighting the need to distinguish policy effects from mechanically induced convergence.</p>
+      </details>
+    </article>
+
+    <h3>Undergraduate Thesis</h3>
+
+    <article class="paper">
+      <p class="title">Shadow-Schooling Shutdown: The Impact of China’s Double Reduction Policy on Household Education Expenditure and Consumption Behavior</p>
+      <p class="meta">University of Illinois Urbana-Champaign, 2025. Advisor: Prof. Riley League</p>
+      <details>
+        <summary>Abstract</summary>
+        <p>I study the effects of China’s 2021 “Double Reduction” policy, which restricted off-campus tutoring for students in compulsory education, on household spending. Using child- and household-level panels built from the 2020 and 2022 waves of the China Family Panel Studies, I estimate a difference-in-differences design that compares households whose children were all in compulsory schooling with households whose children were all in kindergarten or high school. The reform reduced off-campus tutoring spending by about 1,000 yuan per child and household education spending by 1,600–2,000 yuan, with no detectable change in total consumption, its composition, or the average propensity to consume.</p>
+      </details>
+    </article>
+
+    <h3>Research Assistance</h3>
+
+    <ul class="entries">
+      <li>
+        <div class="what">Prof. Jared Hutchins, University of Illinois Urbana-Champaign
+          <small>Historical U.S. agricultural credit and production: digitized archival records with OCR and built a database linking credit conditions to agricultural production.</small>
+        </div>
+        <div class="when">2024–2025</div>
+      </li>
+      <li>
+        <div class="what">Prof. Xiao Wang, Xi’an Jiaotong-Liverpool University
+          <small>Breakthrough innovation in firms: organized firm data, constructed variables, and ran preliminary analysis.</small>
+        </div>
+        <div class="when">2023</div>
+      </li>
+      <li>
+        <div class="what">Prof. Linhan Zhang, Xi’an Jiaotong-Liverpool University
+          <small>AI adoption in auditing: built a text corpus on AI-enabled audit quality and transparency through web scraping.</small>
+        </div>
+        <div class="when">2023</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ========== 教育 ========== -->
+  <section id="education">
+    <h2>Education</h2>
+    <ul class="entries" style="margin-top: 20px;">
+      <li>
+        <div class="what">M.A. in Economics, University of Chicago
+          <small>Chair Scholar Award</small>
+        </div>
+        <div class="when">2026–2027 (expected)</div>
+      </li>
+      <li>
+        <div class="what">B.S. in Econometrics and Quantitative Economics, University of Illinois Urbana-Champaign
+          <small>with Distinction</small>
+        </div>
+        <div class="when">2024–2026</div>
+      </li>
+      <li>
+        <div class="what">Economics and Finance, Xi’an Jiaotong-Liverpool University
+          <small>First-Class standing; transferred to UIUC</small>
+        </div>
+        <div class="when">2022–2024</div>
+      </li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Wenda Zhang · Last updated October 2026
+</footer>
+
+<script>
+  // 邮箱防爬虫：页面上显示 [at] [dot]，点击时才拼成真实地址
+  document.querySelectorAll('a.email').forEach(function (a) {
+    a.href = 'mailto:' + a.dataset.u + '@' + a.dataset.d;
+  });
+</script>
+</body>
+</html>

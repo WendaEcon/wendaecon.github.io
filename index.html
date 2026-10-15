@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Wenda Zhang</title>
-<meta name="description" content="Wenda Zhang, M.A. student in Economics at the University of Chicago. Environmental and public economics, political economy of China, applied econometrics.">
+<meta name="description" content="Wenda Zhang, M.A. student in Economics at the University of Chicago. Applied microeconomics: environmental, development, and political economics.">
 <meta property="og:title" content="Wenda Zhang">
 <meta property="og:description" content="M.A. student in Economics, University of Chicago">
+<meta property="og:image" content="images/profile.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23800000'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='white' text-anchor='middle'%3EWZ%3C/text%3E%3C/svg%3E">
 <style>
   /* 全部样式都写在这里，不引用任何外部字体或脚本（国内也能正常打开） */
@@ -16,9 +17,14 @@
     --muted: #666;
     --line: #e6e6e6;
     --soft: #faf7f7;
-    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
-    --serif: Georgia, "Times New Roman", "Songti SC", "SimSun", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --serif: Georgia, "Times New Roman", serif;
   }
+
+  /* ---- 中英切换：只显示当前语言 ---- */
+  html[data-lang="en"] [lang="zh"],
+  html[data-lang="zh"] [lang="en"] { display: none !important; }
+
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; scroll-padding-top: 72px; }
   body { margin: 0; color: var(--text); background: #fff; font: 17px/1.65 var(--sans); -webkit-font-smoothing: antialiased; }
@@ -27,22 +33,25 @@
 
   /* 顶部导航 */
   .site-header { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.96); border-bottom: 1px solid var(--line); }
-  .bar { max-width: 880px; margin: 0 auto; padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px 16px; }
+  .bar { max-width: 920px; margin: 0 auto; padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px 16px; }
   .brand { font-family: var(--serif); font-size: 20px; font-weight: 600; color: var(--text); }
   .brand:hover { text-decoration: none; }
-  nav a { margin-left: 22px; font-size: 15px; color: var(--muted); }
+  nav { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 20px; }
+  nav a { font-size: 15px; color: var(--muted); }
   nav a:hover { color: var(--accent); text-decoration: none; }
+  .lang-btn { font: inherit; font-size: 14px; color: var(--accent); background: #fff; border: 1px solid #d8bcbc; border-radius: 999px; padding: 2px 12px; cursor: pointer; }
+  .lang-btn:hover { background: var(--soft); }
 
-  main { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+  main { max-width: 920px; margin: 0 auto; padding: 0 24px; }
   section { padding: 44px 0 4px; }
 
   /* 首屏：照片 + 简介 */
-  .intro { display: grid; grid-template-columns: 210px 1fr; gap: 40px; align-items: start; padding-top: 56px; }
-  .avatar { position: relative; width: 210px; aspect-ratio: 4 / 5; border-radius: 8px; overflow: hidden; background: #f3ecec; display: flex; align-items: center; justify-content: center; }
+  .intro { display: grid; grid-template-columns: 220px 1fr; gap: 40px; align-items: start; padding-top: 56px; }
+  .avatar { position: relative; width: 220px; aspect-ratio: 4 / 5; border-radius: 8px; overflow: hidden; background: #f3ecec; display: flex; align-items: center; justify-content: center; }
   .avatar span { font-family: var(--serif); font-size: 64px; color: var(--accent); opacity: .65; }
   .avatar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   h1 { font-family: var(--serif); font-weight: 600; font-size: 38px; line-height: 1.2; margin: 0 0 6px; }
-  h1 .cn { font-weight: 400; font-size: .72em; color: var(--muted); margin-left: 10px; }
+  h1 .cn { font-family: var(--sans); font-weight: 400; font-size: .7em; color: var(--muted); margin-left: 10px; }
   .role { margin: 0 0 18px; color: var(--muted); }
   .intro p { margin: 0 0 14px; }
   .links { list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 15.5px; }
@@ -50,19 +59,20 @@
   /* 标题 */
   h2 { font-family: var(--serif); font-size: 26px; font-weight: 600; margin: 0 0 8px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
   h3 { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 28px 0 14px; }
+  html[data-lang="zh"] h2 { font-family: var(--sans); font-size: 24px; }
+  html[data-lang="zh"] h3 { font-size: 14px; letter-spacing: .04em; }
 
   /* 论文条目 */
   .paper { margin: 0 0 26px; }
-  .paper .title { font-size: 18px; font-weight: 600; line-height: 1.45; margin: 0 0 4px; }
-  .paper .title a { color: var(--text); }
-  .paper .title a:hover { color: var(--accent); }
-  .paper .meta { font-size: 15.5px; color: var(--muted); margin: 0 0 8px; }
+  .paper .title { font-size: 18px; font-weight: 600; line-height: 1.45; margin: 0 0 2px; }
+  .paper .title-zh { font-size: 15.5px; color: var(--muted); margin: 0 0 4px; }
+  .paper .meta { font-size: 15.5px; color: var(--muted); margin: 2px 0 8px; }
   details summary { display: inline-block; cursor: pointer; list-style: none; user-select: none; font-size: 14px; color: var(--accent); border: 1px solid #dcc5c5; border-radius: 4px; padding: 1px 10px; }
   details summary::-webkit-details-marker { display: none; }
   details summary::before { content: "\25B8\00a0"; }
   details[open] summary::before { content: "\25BE\00a0"; }
   details summary:hover { background: var(--soft); }
-  details p { margin: 10px 0 0; padding: 12px 16px; font-size: 15.5px; line-height: 1.7; background: var(--soft); border-left: 3px solid var(--accent); }
+  details .abstract { margin: 10px 0 0; padding: 12px 16px; font-size: 15.5px; line-height: 1.7; background: var(--soft); border-left: 3px solid var(--accent); }
 
   /* 列表（研究助理 / 教育） */
   .entries { list-style: none; padding: 0; margin: 0; }
@@ -71,16 +81,30 @@
   .entries .what small { display: block; font-size: 15px; color: var(--muted); line-height: 1.55; margin-top: 2px; }
   .entries .when { white-space: nowrap; font-size: 15px; color: var(--muted); }
 
-  footer { max-width: 880px; margin: 56px auto 0; padding: 22px 24px 40px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
+  /* Beyond Academia */
+  #beyond .head { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--line); margin-bottom: 16px; }
+  #beyond .head h2 { border: 0; margin: 0; }
+  .hide-btn { font: inherit; font-size: 14px; color: var(--muted); background: none; border: 0; cursor: pointer; padding: 4px 0; }
+  .hide-btn:hover { color: var(--accent); }
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 6px; }
+  .gallery img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 6px; cursor: zoom-in; background: #eee; }
+  .gallery img.wide { grid-column: 1 / -1; aspect-ratio: 1800 / 874; }
+  .gallery-note { font-size: 14px; color: var(--muted); margin: 0; }
+  #lightbox { position: fixed; inset: 0; z-index: 50; background: rgba(0,0,0,.88); display: flex; align-items: center; justify-content: center; cursor: zoom-out; }
+  #lightbox[hidden] { display: none; }
+  #lightbox img { max-width: 94vw; max-height: 92vh; border-radius: 4px; }
+
+  footer { max-width: 920px; margin: 56px auto 0; padding: 22px 24px 40px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
 
   /* 手机端 */
   @media (max-width: 640px) {
     body { font-size: 16px; }
     .intro { grid-template-columns: 1fr; gap: 24px; padding-top: 36px; }
-    .avatar { width: 150px; }
+    .avatar { width: 160px; }
     h1 { font-size: 31px; }
-    nav a { margin: 0 18px 0 0; }
+    nav { gap: 6px 16px; }
     .entries li { flex-direction: column; gap: 0; }
+    .gallery { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -90,10 +114,12 @@
   <div class="bar">
     <a class="brand" href="#">Wenda Zhang</a>
     <nav>
-      <a href="#about">About</a>
-      <a href="#research">Research</a>
-      <a href="#education">Education</a>
-      <a href="CV_Wenda_Zhang.pdf" target="_blank" rel="noopener">CV</a>
+      <a href="#about"><span lang="en">About</span><span lang="zh">简介</span></a>
+      <a href="#research"><span lang="en">Research</span><span lang="zh">研究</span></a>
+      <a href="#education"><span lang="en">Education</span><span lang="zh">教育背景</span></a>
+      <a href="CV_Wenda_Zhang.pdf" target="_blank" rel="noopener"><span lang="en">CV</span><span lang="zh">简历</span></a>
+      <a href="#beyond" class="beyond-link"><span lang="en">Beyond Academia</span><span lang="zh">学术之外</span></a>
+      <button class="lang-btn" id="lang-btn" type="button" aria-label="Switch language"><span lang="en">中文</span><span lang="zh">English</span></button>
     </nav>
   </div>
 </header>
@@ -102,27 +128,28 @@
 
   <!-- ========== 首页简介 ========== -->
   <section id="about" class="intro">
-    <!-- 照片：把你的照片命名为 profile.jpg，和 index.html 放在同一个文件夹，就会自动替换下面的 "WZ" 占位 -->
     <div class="avatar">
       <span>WZ</span>
-      <img src="profile.jpg" alt="Wenda Zhang" onerror="this.remove()">
+      <img src="images/profile.jpg" alt="Wenda Zhang" onerror="this.remove()">
     </div>
 
     <div>
       <!-- 想加中文名：把下一行改成 <h1>Wenda Zhang <span class="cn">你的中文名</span></h1> -->
       <h1>Wenda Zhang</h1>
-      <p class="role">M.A. Student in Economics, University of Chicago</p>
+      <p class="role"><span lang="en">M.A. Student in Economics, University of Chicago</span><span lang="zh">芝加哥大学 经济学硕士研究生</span></p>
 
-      <p>I am an M.A. student in Economics at the University of Chicago, supported by the Chair Scholar Award. I received my B.S. in Econometrics and Quantitative Economics with Distinction from the University of Illinois Urbana-Champaign in 2026, after beginning my undergraduate studies at Xi’an Jiaotong-Liverpool University.</p>
+      <p lang="en">I am a master’s student in the <a href="https://economics.uchicago.edu/masters-programs/master-arts-economics" target="_blank" rel="noopener">Master of Arts in Economics (MAE)</a> program at the University of Chicago, expected to graduate in June 2027. Before coming to Chicago, I received my B.S. in Econometrics and Quantitative Economics with Distinction from the University of Illinois Urbana-Champaign.</p>
+      <p lang="zh">我目前是芝加哥大学<a href="https://economics.uchicago.edu/masters-programs/master-arts-economics" target="_blank" rel="noopener">经济学硕士项目（MAE）</a>的硕士研究生，预计于 2027 年 6 月毕业。来到芝加哥之前，我以优异成绩（with Distinction）毕业于伊利诺伊大学厄巴纳-香槟分校（UIUC），获计量经济学与数量经济学理学学士学位。</p>
 
-      <p>My research interests are in environmental and public economics, the political economy of China, and applied econometrics. With <a href="https://www.yuhangpan.com/" target="_blank" rel="noopener">Yuhang Pan</a> and Haotian Yu, I study how China’s wastewater-treatment targets shaped local government behavior, and when distance-to-target research designs produce effects through regression to the mean alone.</p>
+      <p lang="en">I do empirical research using applied microeconomic methods, with primary interests in environmental, development, and political economics. I am also interested in how public policies in education and health shape household decisions and welfare. My current work studies how a centrally assigned wastewater-treatment target in China led local governments to strategically build the infrastructure that raised the assessed indicator (treatment plants rather than sewer networks), without comparable improvements in river water quality, industrial water use, or pollutant discharge. In a companion methodological paper, we show that distance-to-target research designs can generate mechanical convergence through regression to the mean, and develop diagnostics to separate it from genuine policy effects.</p>
+      <p lang="zh">我使用应用微观经济学方法开展实证研究，主要研究兴趣为环境经济学、发展经济学和政治经济学；我也关注教育和医疗领域的公共政策如何影响家庭决策与福利。我目前的研究关注中国一项由中央下达的污水处理率考核目标，如何促使地方政府策略性地投资于能直接拉高考核指标的基础设施（扩建污水处理厂，而非铺设管网），而河流水质、工业用水和污染排放却没有出现相应改善。在一篇配套的方法论文章中，我们还研究了“距目标差距”（distance-to-target）类研究设计如何通过均值回归产生机械收敛，并提出了区分机械效应与真实政策效应的诊断方法。</p>
 
       <ul class="links">
         <li><a class="email" data-u="wendaecon" data-d="uchicago.edu" href="#">wendaecon [at] uchicago [dot] edu</a></li>
-        <li><a href="CV_Wenda_Zhang.pdf" target="_blank" rel="noopener">CV (PDF)</a></li>
+        <li><a href="CV_Wenda_Zhang.pdf" target="_blank" rel="noopener"><span lang="en">CV (PDF)</span><span lang="zh">简历（PDF）</span></a></li>
         <!-- 有的话取消注释并填上链接：
         <li><a href="https://scholar.google.com/citations?user=XXXX" target="_blank" rel="noopener">Google Scholar</a></li>
-        <li><a href="https://github.com/XXXX" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://github.com/WendaEcon" target="_blank" rel="noopener">GitHub</a></li>
         <li><a href="https://www.linkedin.com/in/XXXX" target="_blank" rel="noopener">LinkedIn</a></li>
         -->
       </ul>
@@ -131,100 +158,197 @@
 
   <!-- ========== 研究 ========== -->
   <section id="research">
-    <h2>Research</h2>
+    <h2><span lang="en">Research</span><span lang="zh">研究</span></h2>
 
-    <h3>Working Papers</h3>
+    <h3><span lang="en">Working Papers</span><span lang="zh">工作论文</span></h3>
 
-    <!-- 有 PDF 之后：把标题包进 <a href="文件名.pdf" target="_blank">…</a> -->
+    <!-- 有 PDF 之后：把标题文字包进 <a href="文件名.pdf" target="_blank">…</a> -->
     <article class="paper">
       <p class="title">Performance Measures and Local Government Behavior: Evidence from China’s Wastewater Treatment Targets</p>
-      <p class="meta">with <a href="https://www.yuhangpan.com/" target="_blank" rel="noopener">Yuhang Pan</a> (Peking University) and Haotian Yu (Georgia Institute of Technology)</p>
+      <p class="title-zh" lang="zh">绩效考核与地方政府行为：来自中国污水处理目标的证据</p>
+      <p class="meta">
+        <span lang="en">with <a href="https://www.yuhangpan.com/" target="_blank" rel="noopener">Yuhang Pan</a> (Peking University) and Haotian Yu (Georgia Institute of Technology)</span>
+        <span lang="zh">合作者：<a href="https://www.yuhangpan.com/" target="_blank" rel="noopener">潘聿航</a>（北京大学）、Haotian Yu（佐治亚理工学院）</span>
+      </p>
       <details>
-        <summary>Abstract</summary>
-        <p>We study how Chinese cities responded to the wastewater-treatment-rate targets of the 11th Five-Year Plan (2006–2010). Our two-sided continuous-treatment difference-in-differences design exploits cross-city variation in the distance between pre-policy treatment rates and assigned targets. Cities further below their targets increased treated wastewater volume, treatment capacity, and the number of plants, but did not expand sewer networks or other unassessed infrastructure, while cities already above their targets did not change treated volume. This pattern follows the structure of the assessed indicator: plants raise treated volume directly, whereas sewer expansion raises both treated and collected wastewater and contributes less to the measured rate. The margin of response depended on existing capacity: cities with idle capacity ran existing plants harder, while capacity-constrained cities built new plants. Despite the large expansion in treatment, river water quality, industrial firm behavior and water use, and domestic pollutant discharge show no comparable differential improvement.</p>
+        <summary><span lang="en">Abstract</span><span lang="zh">摘要</span></summary>
+        <p class="abstract" lang="en">We study how Chinese cities responded to the wastewater-treatment-rate targets of the 11th Five-Year Plan (2006–2010). Our two-sided continuous-treatment difference-in-differences design exploits cross-city variation in the distance between pre-policy treatment rates and assigned targets. Cities further below their targets increased treated wastewater volume, treatment capacity, and the number of plants, but did not expand sewer networks or other unassessed infrastructure, while cities already above their targets did not change treated volume. This pattern follows the structure of the assessed indicator: plants raise treated volume directly, whereas sewer expansion raises both treated and collected wastewater and contributes less to the measured rate. The margin of response depended on existing capacity: cities with idle capacity ran existing plants harder, while capacity-constrained cities built new plants. Despite the large expansion in treatment, river water quality, industrial firm behavior and water use, and domestic pollutant discharge show no comparable differential improvement.</p>
+        <p class="abstract" lang="zh">我们研究中国城市如何回应“十一五”规划（2006–2010）中的污水处理率考核目标。我们采用双侧连续处理强度的双重差分设计，利用各城市政策前污水处理率与所分配目标之间差距的跨城市差异进行识别。距离目标越远的城市，污水处理量、处理能力和污水处理厂数量增加越多，但并未扩建管网或其他不受考核的基础设施；而已经达标的城市，处理量没有变化。这一模式与考核指标的构造一致：处理厂直接提高处理量，而管网扩建会同时提高处理量和收集量，对考核比率的贡献较小。响应方式取决于既有产能：有闲置产能的城市提高了现有处理厂的负荷，产能受限的城市则新建处理厂。尽管污水处理规模大幅扩张，河流水质、工业企业行为与用水以及生活污染物排放均未出现相应的差异性改善。</p>
       </details>
     </article>
 
     <article class="paper">
       <p class="title">When Treatment Intensity Is Built from the Baseline Outcome: Mechanical Convergence in Distance-to-Target Designs</p>
-      <p class="meta">with <a href="https://www.yuhangpan.com/" target="_blank" rel="noopener">Yuhang Pan</a> (Peking University) and Haotian Yu (Georgia Institute of Technology)</p>
+      <p class="title-zh" lang="zh">当处理强度由基期结果构造时：距目标差距设计中的机械收敛</p>
+      <p class="meta">
+        <span lang="en">with <a href="https://www.yuhangpan.com/" target="_blank" rel="noopener">Yuhang Pan</a> (Peking University) and Haotian Yu (Georgia Institute of Technology)</span>
+        <span lang="zh">合作者：<a href="https://www.yuhangpan.com/" target="_blank" rel="noopener">潘聿航</a>（北京大学）、Haotian Yu（佐治亚理工学院）</span>
+      </p>
       <details>
-        <summary>Abstract</summary>
-        <p>Many difference-in-differences designs measure treatment intensity as the gap between a policy target and a unit’s baseline outcome. We show that such a dose generates a dose response through regression to the mean alone, and derive this mechanical response. Standard clipped codings, which set units past the target to zero, amplify mechanical convergence, while signed-dose specifications eliminate target-specific variation; a two-sided spline isolates the kink at the target, but interpreting that kink still requires a no-policy benchmark. We develop placebo-target, placebo-date, untreated-unit, and base-year-relocation diagnostics and apply them to Chinese city data and to six published studies. In several cases, placebo designs with no policy reproduce much of the estimated response, highlighting the need to distinguish policy effects from mechanically induced convergence.</p>
+        <summary><span lang="en">Abstract</span><span lang="zh">摘要</span></summary>
+        <p class="abstract" lang="en">Many difference-in-differences designs measure treatment intensity as the gap between a policy target and a unit’s baseline outcome. We show that such a dose generates a dose response through regression to the mean alone, and derive this mechanical response. Standard clipped codings, which set units past the target to zero, amplify mechanical convergence, while signed-dose specifications eliminate target-specific variation; a two-sided spline isolates the kink at the target, but interpreting that kink still requires a no-policy benchmark. We develop placebo-target, placebo-date, untreated-unit, and base-year-relocation diagnostics and apply them to Chinese city data and to six published studies. In several cases, placebo designs with no policy reproduce much of the estimated response, highlighting the need to distinguish policy effects from mechanically induced convergence.</p>
+        <p class="abstract" lang="zh">许多双重差分研究以政策目标与个体基期结果之间的差距来衡量处理强度。我们证明，这类处理强度仅凭均值回归就会产生剂量–反应关系，并推导了这一机械效应。将已越过目标的个体编码为零的常见截断做法会放大机械收敛；带符号的处理强度设定则会消除与目标相关的变异；双侧样条可以分离出目标处的拐点，但解读该拐点仍需要一个无政策的基准。我们提出了安慰剂目标、安慰剂时间、未处理个体和基年迁移等诊断方法，并将其应用于中国城市数据和六篇已发表的研究。在若干案例中，不存在任何政策的安慰剂设计即可复现大部分估计效应，这说明有必要将政策效应与机械收敛区分开来。</p>
       </details>
     </article>
 
-    <h3>Undergraduate Thesis</h3>
+    <h3><span lang="en">Undergraduate Thesis</span><span lang="zh">本科毕业论文</span></h3>
 
     <article class="paper">
       <p class="title">Shadow-Schooling Shutdown: The Impact of China’s Double Reduction Policy on Household Education Expenditure and Consumption Behavior</p>
-      <p class="meta">University of Illinois Urbana-Champaign, 2025. Advisor: Prof. Riley League</p>
+      <p class="title-zh" lang="zh">影子教育的关停：“双减”政策对家庭教育支出与消费行为的影响</p>
+      <p class="meta">
+        <span lang="en">University of Illinois Urbana-Champaign, 2025. Advisor: Prof. <a href="https://rileyleague.com/" target="_blank" rel="noopener">Riley League</a></span>
+        <span lang="zh">伊利诺伊大学厄巴纳-香槟分校，2025。指导教师：<a href="https://rileyleague.com/" target="_blank" rel="noopener">Riley League</a> 教授</span>
+      </p>
       <details>
-        <summary>Abstract</summary>
-        <p>I study the effects of China’s 2021 “Double Reduction” policy, which restricted off-campus tutoring for students in compulsory education, on household spending. Using child- and household-level panels built from the 2020 and 2022 waves of the China Family Panel Studies, I estimate a difference-in-differences design that compares households whose children were all in compulsory schooling with households whose children were all in kindergarten or high school. The reform reduced off-campus tutoring spending by about 1,000 yuan per child and household education spending by 1,600–2,000 yuan, with no detectable change in total consumption, its composition, or the average propensity to consume.</p>
+        <summary><span lang="en">Abstract</span><span lang="zh">摘要</span></summary>
+        <p class="abstract" lang="en">I study the effects of China’s 2021 “Double Reduction” policy, which restricted off-campus tutoring for students in compulsory education, on household spending. Using child- and household-level panels built from the 2020 and 2022 waves of the China Family Panel Studies, I estimate a difference-in-differences design that compares households whose children were all in compulsory schooling with households whose children were all in kindergarten or high school. The reform reduced spending on off-campus tutoring and total household education spending, with no detectable change in total consumption, its composition, or the average propensity to consume.</p>
+        <p class="abstract" lang="zh">本文研究 2021 年“双减”政策（限制义务教育阶段学生参加校外培训）对家庭支出的影响。基于中国家庭追踪调查（CFPS）2020 年和 2022 年两期数据，我构建了儿童层面和家庭层面的面板，采用双重差分设计，比较子女全部处于义务教育阶段的家庭与子女全部处于幼儿园或高中阶段的家庭。结果显示，政策降低了校外培训支出和家庭教育总支出，但总消费、消费结构和平均消费倾向均没有检测到明显变化。</p>
       </details>
     </article>
 
-    <h3>Research Assistance</h3>
+    <h3><span lang="en">Research Assistance</span><span lang="zh">研究助理经历</span></h3>
 
     <ul class="entries">
       <li>
-        <div class="what">Prof. Jared Hutchins, University of Illinois Urbana-Champaign
-          <small>Historical U.S. agricultural credit and production: digitized archival records with OCR and built a database linking credit conditions to agricultural production.</small>
+        <div class="what">
+          <span lang="en">Prof. Jared Hutchins, University of Illinois Urbana-Champaign</span>
+          <span lang="zh">Jared Hutchins 教授，伊利诺伊大学厄巴纳-香槟分校</span>
+          <small lang="en">Historical U.S. agricultural credit and production: digitized archival records with OCR and built a database linking credit conditions to agricultural production.</small>
+          <small lang="zh">美国历史农业信贷与农业生产：利用 OCR 数字化档案记录，构建连接信贷条件与农业生产的数据库。</small>
         </div>
-        <div class="when">2024–2025</div>
+        <div class="when"><span lang="en">Sep 2024 – May 2025</span><span lang="zh">2024.09 – 2025.05</span></div>
       </li>
       <li>
-        <div class="what">Prof. Xiao Wang, Xi’an Jiaotong-Liverpool University
-          <small>Breakthrough innovation in firms: organized firm data, constructed variables, and ran preliminary analysis.</small>
+        <div class="what">
+          <span lang="en">Prof. Xiao Wang, Xi’an Jiaotong-Liverpool University</span>
+          <span lang="zh">Xiao Wang 教授，西交利物浦大学</span>
+          <small lang="en">Breakthrough innovation in firms: organized firm data, constructed variables, and ran preliminary analysis.</small>
+          <small lang="zh">企业突破式创新：整理企业数据、构建变量并进行初步实证分析。</small>
         </div>
-        <div class="when">2023</div>
+        <div class="when"><span lang="en">Aug 2023 – Dec 2023</span><span lang="zh">2023.08 – 2023.12</span></div>
       </li>
       <li>
-        <div class="what">Prof. Linhan Zhang, Xi’an Jiaotong-Liverpool University
-          <small>AI adoption in auditing: built a text corpus on AI-enabled audit quality and transparency through web scraping.</small>
+        <div class="what">
+          <span lang="en">Prof. Linhan Zhang, Xi’an Jiaotong-Liverpool University</span>
+          <span lang="zh">Linhan Zhang 教授，西交利物浦大学</span>
+          <small lang="en">AI adoption in auditing: built a text corpus on AI-enabled audit quality and transparency through web scraping.</small>
+          <small lang="zh">审计中的人工智能应用：通过网络爬虫收集文本，构建关于 AI 赋能审计质量与透明度的语料库。</small>
         </div>
-        <div class="when">2023</div>
+        <div class="when"><span lang="en">Aug 2023 – Dec 2023</span><span lang="zh">2023.08 – 2023.12</span></div>
       </li>
     </ul>
   </section>
 
   <!-- ========== 教育 ========== -->
   <section id="education">
-    <h2>Education</h2>
+    <h2><span lang="en">Education</span><span lang="zh">教育背景</span></h2>
     <ul class="entries" style="margin-top: 20px;">
       <li>
-        <div class="what">M.A. in Economics, University of Chicago
-          <small>Chair Scholar Award</small>
+        <div class="what">
+          <span lang="en">M.A. in Economics (MAE), University of Chicago</span>
+          <span lang="zh">芝加哥大学 经济学硕士（MAE）</span>
+          <small lang="en">Expected June 2027</small>
+          <small lang="zh">预计 2027 年 6 月毕业</small>
         </div>
-        <div class="when">2026–2027 (expected)</div>
+        <div class="when"><span lang="en">Aug 2026 – Present</span><span lang="zh">2026.08 – 至今</span></div>
       </li>
       <li>
-        <div class="what">B.S. in Econometrics and Quantitative Economics, University of Illinois Urbana-Champaign
-          <small>with Distinction</small>
+        <div class="what">
+          <span lang="en">B.S. in Econometrics and Quantitative Economics, University of Illinois Urbana-Champaign</span>
+          <span lang="zh">伊利诺伊大学厄巴纳-香槟分校 计量经济学与数量经济学 理学学士</span>
+          <small lang="en">with Distinction</small>
+          <small lang="zh">优异毕业（with Distinction）</small>
         </div>
-        <div class="when">2024–2026</div>
+        <div class="when"><span lang="en">Jan 2024 – May 2026</span><span lang="zh">2024.01 – 2026.05</span></div>
       </li>
       <li>
-        <div class="what">Economics and Finance, Xi’an Jiaotong-Liverpool University
-          <small>First-Class standing; transferred to UIUC</small>
+        <div class="what">
+          <span lang="en">Economics and Finance, Xi’an Jiaotong-Liverpool University</span>
+          <span lang="zh">西交利物浦大学 经济与金融</span>
+          <small lang="en">First-Class standing; transferred to UIUC</small>
+          <small lang="zh">一等成绩（First-Class）；后转学至 UIUC</small>
         </div>
-        <div class="when">2022–2024</div>
+        <div class="when"><span lang="en">Aug 2022 – Jan 2024</span><span lang="zh">2022.08 – 2024.01</span></div>
       </li>
     </ul>
+  </section>
+
+  <!-- ========== 学术之外（默认隐藏，点导航栏 Beyond Academia 才显示） ========== -->
+  <section id="beyond" hidden>
+    <div class="head">
+      <h2><span lang="en">Beyond Academia</span><span lang="zh">学术之外</span></h2>
+      <button class="hide-btn" id="hide-beyond" type="button"><span lang="en">Hide ↑</span><span lang="zh">收起 ↑</span></button>
+    </div>
+
+    <p lang="en">My hometown is Qingdao, Shandong, a beautiful coastal city in northern China. The photos below are a few I took there myself.</p>
+    <p lang="zh">我的家乡是山东青岛，一座位于中国北方、非常美丽的滨海城市。下面是几张我亲自拍的青岛照片。</p>
+
+    <div class="gallery">
+      <img class="wide" src="images/qingdao-1.jpg" alt="Qingdao coastline" loading="lazy">
+      <img src="images/qingdao-2.jpg" alt="Qingdao beach and mountains" loading="lazy">
+      <img src="images/qingdao-3.jpg" alt="Seagulls in Qingdao" loading="lazy">
+      <img src="images/qingdao-4.jpg" alt="Qingdao beach at sunset" loading="lazy">
+    </div>
+    <p class="gallery-note"><span lang="en">Click a photo to enlarge.</span><span lang="zh">点击照片可放大查看。</span></p>
+
+    <p lang="en" style="margin-top: 22px;">These days I enjoy traveling, photography, cooking now and then, reading, listening to music, and playing the guitar. My favorite book is <em>One Hundred Years of Solitude</em> by Gabriel García Márquez.</p>
+    <p lang="zh" style="margin-top: 22px;">我目前的爱好是旅行、摄影、偶尔下厨做饭、读书、听音乐和弹吉他。我最喜欢的一本书是加西亚·马尔克斯的《百年孤独》。</p>
   </section>
 
 </main>
 
 <footer>
-  © 2026 Wenda Zhang · Last updated October 2026
+  <span lang="en">© 2026 Wenda Zhang · Last updated October 2026</span>
+  <span lang="zh">© 2026 Wenda Zhang · 最后更新：2026 年 10 月</span>
 </footer>
 
+<div id="lightbox" hidden><img alt=""></div>
+
 <script>
-  // 邮箱防爬虫：页面上显示 [at] [dot]，点击时才拼成真实地址
-  document.querySelectorAll('a.email').forEach(function (a) {
-    a.href = 'mailto:' + a.dataset.u + '@' + a.dataset.d;
-  });
+  (function () {
+    var root = document.documentElement;
+
+    // 邮箱防爬虫：页面上显示 [at] [dot]，点击时才拼成真实地址
+    document.querySelectorAll('a.email').forEach(function (a) {
+      a.href = 'mailto:' + a.dataset.u + '@' + a.dataset.d;
+    });
+
+    // 中英切换：默认英文；链接末尾加 ?lang=zh 可直接打开中文版
+    function setLang(lang) {
+      root.setAttribute('data-lang', lang);
+      root.lang = lang === 'zh' ? 'zh-CN' : 'en';
+      document.title = lang === 'zh' ? 'Wenda Zhang｜个人主页' : 'Wenda Zhang';
+    }
+    document.getElementById('lang-btn').addEventListener('click', function () {
+      setLang(root.getAttribute('data-lang') === 'en' ? 'zh' : 'en');
+    });
+    if (/[?&]lang=zh\b/.test(location.search)) setLang('zh');
+
+    // 学术之外：默认隐藏，点击导航才展开
+    var beyond = document.getElementById('beyond');
+    function openBeyond() {
+      beyond.hidden = false;
+      beyond.scrollIntoView({ behavior: 'smooth' });
+    }
+    document.querySelectorAll('a[href="#beyond"]').forEach(function (a) {
+      a.addEventListener('click', function (e) { e.preventDefault(); openBeyond(); });
+    });
+    document.getElementById('hide-beyond').addEventListener('click', function () {
+      beyond.hidden = true;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    if (location.hash === '#beyond') openBeyond();
+
+    // 点击照片放大
+    var lb = document.getElementById('lightbox');
+    var lbImg = lb.querySelector('img');
+    document.querySelectorAll('.gallery img').forEach(function (img) {
+      img.addEventListener('click', function () { lbImg.src = img.src; lbImg.alt = img.alt; lb.hidden = false; });
+    });
+    lb.addEventListener('click', function () { lb.hidden = true; });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') lb.hidden = true; });
+  })();
 </script>
 </body>
 </html>
